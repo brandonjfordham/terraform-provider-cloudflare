@@ -66,6 +66,12 @@ func resourceCloudflareCertificatePackSchema() map[string]*schema.Schema {
 			Optional: true,
 			Elem:     sslValidationErrorsSchema(),
 		},
+		"delegation_records": {
+			Type:     schema.TypeList,
+			Computed: true,
+			Optional: true,
+			Elem:     sslDelegationRecordsSchema(),
+		},
 		"cloudflare_branding": {
 			Type:        schema.TypeBool,
 			Optional:    true,
