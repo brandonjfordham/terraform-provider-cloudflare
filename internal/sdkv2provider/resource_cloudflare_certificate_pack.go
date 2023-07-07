@@ -140,6 +140,18 @@ func resourceCloudflareCertificatePackRead(ctx context.Context, d *schema.Resour
 		d.Set("validation_records", records)
 	}
 
+	if !reflect.ValueOf(certificatePack.DelegationRecords).IsNil() {
+		records := []map[string]interface{}{}
+		for _, e := range certificatePack.DelegationRecords {
+			records = append(records,
+				map[string]interface{}{
+					"cname_name":   e.CnameName,
+					"cname_target": e.CnameTarget,
+				})
+		}
+		d.Set("delegation_records", records)
+	}
+
 	return nil
 }
 
