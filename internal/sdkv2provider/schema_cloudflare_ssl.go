@@ -58,3 +58,21 @@ func sslValidationRecordsSchema() *schema.Resource {
 		},
 	}
 }
+
+func sslDelegationRecordsSchema() *schema.Resource {
+	return &schema.Resource{
+		SchemaVersion: 1,
+		Schema: map[string]*schema.Schema{
+			"cname_target": {
+				Type:     schema.TypeString,
+				Computed: true,
+				Optional: true,
+			},
+			"cname_name": {
+				Type:     schema.TypeString,
+				Computed: true,
+				Optional: true,
+			},
+		},
+	}
+}
